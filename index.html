@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>放映室</title>
+    <style>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201910%2F13%2F20191013222601_iaifj.thumb.400_0.png&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1662289944&t=f737c8be7583a798d1bd54bd82314eaf);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: 300%;
+      }
+
+      #main {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        font-size: 36px;
+      }
+
+      #url {
+        padding: 20px;
+        background: transparent;
+        border: none;
+        width: 30%;
+        color: white;
+        margin-right: 5px;
+      }
+
+      input::placeholder {
+        color: white;
+      }
+
+      #btn1 {
+        color: #409eff;
+        background: #ecf5ff;
+        border: 1px solid #a0cfff;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        line-height: 1;
+        height: 32px;
+        white-space: nowrap;
+        cursor: pointer;
+        text-align: center;
+        box-sizing: border-box;
+        outline: none;
+        transition: 0.1s;
+        font-weight: 500;
+        user-select: none;
+        padding: 8px 15px;
+        font-size: 14px;
+        border-radius: 4px;
+        height: 42px;
+        margin: 30px 0;
+      }
+
+      #btn1:hover {
+        color: white;
+        background: #409eff;
+        border: 1px solid #409eff;
+      }
+      #btn2 {
+        color: #409eff;
+        background: #ecf5ff;
+        border: 1px solid #a0cfff;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        line-height: 1;
+        height: 32px;
+        white-space: nowrap;
+        cursor: pointer;
+        text-align: center;
+        box-sizing: border-box;
+        outline: none;
+        transition: 0.1s;
+        font-weight: 500;
+        user-select: none;
+        padding: 8px 15px;
+        font-size: 14px;
+        border-radius: 4px;
+        height: 42px;
+        margin: 30px 0;
+      }
+
+      #btn2:hover {
+        color: white;
+        background: #409eff;
+        border: 1px solid #409eff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="main">
+      <div style="display: flex; margin-left: 100px">
+        <p style="font-size: 24px; margin-left: 80px">找到并<br />复制网址</p>
+        <img
+          src="1.jpg"
+          width="200px"
+          height="100px"
+          onclick="two()"
+          id="two"
+        />
+        <p style="font-size: 24px; margin-left: 80px">
+          将复制的网址粘贴进<br />网址框点击观看
+        </p>
+        <img
+          src="2.jpg"
+          width="200px"
+          height="100px"
+          onclick="one()"
+          id="one"
+        /><br />
+      </div>
+      <button id="btn2" onclick="chon()">不会请点击</button><br />
+      <input id="url" placeholder="请输入视频网址" onkeypress="a1(event)" />
+      <button id="btn1" onclick="start()">立即观看</button>
+    </div>
+    <iframe
+      id="movie"
+      style="display: none"
+      scrolling="no"
+      frameborder="no"
+      framespacing="0"
+      allowfullscreen="true"
+      width="100%"
+      height="100%"
+    >
+    </iframe>
+    <script>
+      function start() {
+        main.style.display = "none";
+        movie.src = "https://jx.ppflv.com/?url=" + url.value;
+        movie.style.display = "block";
+      }
+      function a1(event) {
+        if (event.key == "Enter" || event.charCode == 13) {
+          start();
+        }
+      }
+      function chon() {
+        alert("md你个傻鸟");
+      }
+      function one() {
+        var a = document.getElementById("one").style.width;
+        a = parseInt(a);
+        if (a < 400) {
+          document.getElementById("one").style.width = "600px";
+          document.getElementById("one").style.height = "300px";
+        } else {
+          document.getElementById("one").style.width = "200px";
+          document.getElementById("one").style.height = "100px";
+        }
+      }
+      function two() {
+        var b = document.getElementById("two").style.width;
+        b = parseInt(b);
+        if (b < 400) {
+          document.getElementById("two").style.width = "600px";
+          document.getElementById("two").style.height = "300px";
+        } else {
+          document.getElementById("two").style.width = "200px";
+          document.getElementById("two").style.height = "100px";
+        }
+      }
+    </script>
+  </body>
+</html>
